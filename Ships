@@ -1,0 +1,25 @@
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public abstract class Ship {
+
+    public Map<Integer, Integer> xy = new LinkedHashMap<>();
+    public abstract void inputCoordinates();
+    public static void toMarkCoordinates(Ship ship, String[][] player1, String[][] player2){
+
+
+        for (int i = 0; i <= player1.length-1; i++){
+            for (int j = 0; j <= player1.length-1; j++){
+
+                for (Map.Entry<Integer, Integer> entry :  ship.xy.entrySet())
+                    if (i == entry.getKey() && j == entry.getValue()) {
+                        player1[i][j] = "|==|";
+                        player2[i][j] = "|<>|";
+
+                    }
+            }
+        }
+
+    }
+    public int shipLength;
+}
