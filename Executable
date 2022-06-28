@@ -1,7 +1,3 @@
-
-/* 1 - пометить своим кораблём, 12 - вражеским*/
-
-
 import java.util.Map;
 
 public class Executable {
@@ -18,10 +14,23 @@ public class Executable {
     }
 
     public static void startGame(){
-        OneDecked opl = new OneDecked();
 
-        opl.inputCoordinates();
-        OneDecked.toMarkCoordinates(opl, player1, player2);
+        /* корабли игрока 1 */
+        OneDecked opl1 = new OneDecked();
+        OneDecked opl2 = new OneDecked();
+        OneDecked opl3 = new OneDecked();
+        OneDecked opl4 = new OneDecked();
+
+        opl1.inputCoordinates();
+        toMarkCoordinates(opl1, player1, player2);
+        opl2.inputCoordinates();
+        toMarkCoordinates(opl2, player1, player2);
+        opl3.inputCoordinates();
+        toMarkCoordinates(opl3, player1, player2);
+        opl4.inputCoordinates();
+        toMarkCoordinates(opl4, player1, player2);
+
+
 
 
         /*==================================Тестовый вывод на экран========================
@@ -42,6 +51,25 @@ public class Executable {
             }
             System.out.println();
         }
+
+    }
+
+    public static void toMarkCoordinates(OneDecked ship ,String[][] player1, String[][] player2) {
+
+
+        for (int i = 0; i <= player1.length - 1; i++) {
+            for (int j = 0; j <= player1.length - 1; j++) {
+
+                for (int k = 0; k < ship.arrayOfCor.length; k++) {
+                    if (ship.arrayOfCor[0] == i && ship.arrayOfCor[1] == j) {
+                        player1[i][j] = "|==|";
+                        player2[i][j] = "|<>|";
+
+                    }
+                }
+            }
+        }
+
 
     }
 
